@@ -79,6 +79,8 @@
 .icon-search:before { content: '🔍'; } /* '\1f50d' */
 .icon-bookmark:before { content: '🔖'; } /* '\1f516' */
 
+
+
 body{
     font-family: 'Cuprum' sans-serif;
 }
@@ -705,35 +707,32 @@ p{
 }
 
 
-.slider-service{
+.services-block{
     margin-top: 70px;
+    width: 940px;
 }
 
-.slider-service .slide{
-    float: right;
-    width: 620px;
-    height: 284px;
-    background: url("../img/gradient-for-slide.png") no-repeat right;
+.services-switcher{
+    display: none;
 }
 
-.slider-service p{
-    width: 380px;
-}
-
-.slider-service .btn{
-    margin-top: 24px;
-    width: 195px;
-}
-
-.slider-switch {
+.services-labels{
     position: relative;
     float: left;
-    list-style: none;
-    margin: 0;
-    padding: 0;
 }
 
-.slider-switch a{
+.services-labels:after{
+    position: absolute;
+    top: -44px;
+    right: 0;
+    content: "";
+    width: 10px;
+    height: 272px;
+    background: url("../img/switch-shadow.png") no-repeat;
+    z-index: 30;   
+}
+
+.services-labels label{
     display: block;
     width: 218px;
     padding: 15px 0;
@@ -744,29 +743,47 @@ p{
     color: #fff;
     background: #32425c;
     border-bottom: 1px solid #293449;
+    cursor: pointer;
 }
 
-.slider-switch .active{
-    color: #32425c;
+.service-slide{
+    float: right;
+    width: 620px;
+    height: 284px;
+    background: url("../img/gradient-for-slide.png") no-repeat right;
+}
+
+.service-slide p{
+    width: 380px;
+}
+
+.service-slide h3{
+    margin-bottom: 34px;
+    font-size: 30px;
+    line-height: 30px;
+    text-transform: uppercase;
+}
+
+.service-slide .btn{
+    margin-top: 24px;
+    width: 195px;
+}
+
+
+#switcher-btn1:checked ~ .services-labels label:nth-of-type(1),
+#switcher-btn2:checked ~ .services-labels label:nth-of-type(2),
+#switcher-btn3:checked ~ .services-labels label:nth-of-type(3)
+{
     background: #fff;
+    color: #32425c;
     border-bottom: none;
 }
 
-.slider-switch:after{
-    position: absolute;
-    top: -44px;
-    right: 0;
-    content: "";
-    width: 10px;
-    height: 272px;
-    background: url("../img/switch-shadow.png") no-repeat;
-    z-index: 30;
-    
+#switcher-btn1:checked ~ .service-slide:nth-of-type(1),
+#switcher-btn2:checked ~ .service-slide:nth-of-type(2),
+#switcher-btn3:checked ~ .service-slide:nth-of-type(3)
+{
+    display: block;
 }
 
-.slide-header {
-    font-size: 30px;
-    text-transform: uppercase;
-    line-height: 30px;
-    margin-bottom: 34px;
-}
+
